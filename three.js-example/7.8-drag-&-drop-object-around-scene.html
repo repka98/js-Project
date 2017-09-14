@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>7.8-Drag'n'drop object around scene</title>
+	<script src="../threejs-cookbook-master/libs/three.js"></script>
+	<script src="../threejs-cookbook-master/libs/dat.gui.min.js"></script>
+	<script src="../threejs-cookbook-master/libs/OrbitControls.js"></script>
+	<style>
+		body {
+			margin:0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<script>
+	var renderer;
+	var scene;
+	var camera;
+	var cube;
+
+	var control;
+	var orbit;
+	var plane;
+	var selectedobject;
+	var offset = new THREE.Vector3();
+	var objects = [];
+
+	function init() {
+		scene = new THREE.Scene();
+		camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+		renderer = new THREE.WebGLRenderer();
+		renderer.setClearColor(0xffffff, 1.0);
+		renderer.setSize(window.innerWidth / window.innerHeight, 0.1, 1000);
+
+		plane = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000, 18, 18), new THREE.MeshBasicMaterial({color: 0x00ff00,
+			opacity: 0.25,
+			transparent: true}));
+		plane.visible = true;
+		scene.add(plane);
+
+		var dirLight = new THREE.DirectionalLight();
+		dirLight.position.set(25, 23, 15);
+		scene.add(dirLight);
+
+	}
+</script>
+<body>
+
+</body>
+</html>

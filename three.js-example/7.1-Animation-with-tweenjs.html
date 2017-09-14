@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>7.1 - Animation with Tween.js</title>
+	<script src="../threejs-cookbook-master/libs/three.js"></script>
+	<script src="../threejs-cookbook-master/libs/dat.gui.min.js"></script>
+	<script src="../threejs-cookbook-master/libs/tween.js"></script>
+	<style>
+		body {
+			margin: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<script>
+	var renderer;
+	var scene;
+	var camera;
+	var cube;
+	var tween;
+	var control;
+
+	function init() {
+		scene = new THREE.Scene();
+		camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+		renderer = new THREE.WebGLRenderer();
+		renderer.setClearColor(0x000000, 0.1);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+
+		var ambientLight = new THREE.AmbientLight(0x090909);
+		scene.add(ambientLight);
+
+		var spotLight = new THREE.SpotLight();
+		spotLight.position.set(10, 80, 30);
+		spotLight.castShadow = true;
+		scene.add(spotLight);
+
+		addFloor();
+		cube = addCube();
+
+		camera.position.x = 36;
+		camera.position.y = 36;
+		camera.position.z = 36;
+		camera.lookAt(scene.position);
+
+		document.body.appendChild(renderer.domElement);
+
+		tween = setupTween();
+		render();
+	}
+
+	function setupTween() {
+		var tween = new TWEEN.Tween(
+			{x:0, 
+			 y: 1.25,
+			 z: 0,
+			 rot:0
+			}
+			)
+		.to(
+			{x: 5,
+			 y: 15,
+			 z: -10,
+			 rot: 2 * Math.PI}
+			, 5000)
+		.easing(TWEEN.Easing.Elastic.InOut)
+		.onUpdate(function () {
+			cube.position.set(this.x, this.y, this.z);
+			cube.rotation.set(this.rot, this.rot, this.rot);
+		})
+		.repeat(Infinity)
+		.yoyo(true)
+		.start();
+
+		return tween;
+	}
+
+	function render() {
+		renderer.render(scene, camera);
+		TWEEN.update();
+
+		requestAnimationFrame(render);
+	}
+
+	function addSphere() {
+		var sphereGeometry = new THREE.SphereGeometry(1.5, 20, 20);
+		var mathProps = {
+			specular: '#a9fcff',
+			color: '#00abb1',
+			emissive: '#006063',
+			shininess: 10
+		}
+
+		var sphereMaterial = new THREE.MeshPhongMaterial(mathProps);
+		var sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+		sphereMesh.castShadow = true;
+		sphereMesh.position.y = 0.75 * Math.PI / 2;
+		sphereMesh.name = 'sphere';
+		scene.add(sphereMesh);
+	}
+
+	function addFloor() {
+		var floorGeometry = new THREE.PlaneGeometry(100, 100, 20, 20);
+		var floorMaterial = new THREE.MeshPhongMaterial();
+		floorMaterial.map = THREE.ImageUtils.loadTexture("../threejs-cookbook-master/assets/textures/floor_2-1024x1024.png");
+
+		floorMaterial.map.wrapS = floorMaterial.map.wrapT = THREE.RepeatWrapping;
+		floorMaterial.map.repeat.set(8 ,8);
+		floorMaterial.side = THREE.DoubleSide;
+		var floorMesh = new THREE.Mesh(floorGeometry, floorMaterial);
+		floorMesh.receiveShadow = true;
+		floorMesh.rotation.x = -0.5 * Math.PI;
+		scene.add(floorMesh);
+	}
+
+	function addCube() {
+		var cubeGeometry = new THREE.BoxGeometry(2.5, 2.5, 2.5);
+		var cubeMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
+		var cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
+		cubeMesh.castShadow = true;
+		cubeMesh.receiveShadow = true;
+		cubeMesh.position.y = 1.25;
+		scene.add(cubeMesh);
+		return cubeMesh;
+	}
+
+	window.onload = init;
+</script>
+<body>
+
+</body>
+</html>

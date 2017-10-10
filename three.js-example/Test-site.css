@@ -1,0 +1,68 @@
+div{
+	height: 100px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+p{
+	text-align: center;
+}
+
+table{
+
+	border-collapse: collapse;
+}
+
+tr{
+
+}
+
+td{
+	border: 1px solid black;
+	border-radius: 3;
+}
+
+.item-list{
+	margin: 0 auto;
+	width: 200px;
+}
+
+.top-field{
+	float: top;
+	background-color: orange;
+	opacity: 1;
+}
+
+.right-field{
+	float: right;
+	width: 45%;
+	text-align: left;
+}
+
+.left-field {
+	float: left;
+	width: 45%;
+	text-align: left;
+}
+
+.bottom-field{
+	position:fixed;
+	left: 0;
+	bottom: 0;
+	padding: 10px;
+	background-color: #39b54a;
+	color: #fff;
+	width: 100%;
+}
+
+.textarea-field{
+	float: right;
+	position: top;
+}
+
+#button-apply {
+	margin: 5px;
+	display: flex;
+	flex-flow: column-wrap;
+}

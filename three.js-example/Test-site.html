@@ -4,16 +4,25 @@
 	<title>Test-site</title>
 	<link rel="stylesheet" type="text/css" href="Test-site.css">
 	<body bgcolor="#F0FFFF">
-	<div class="item-list">
-	
+	<div class="item-field">
 		<div class="top-field">
 			<div class="navi-panel">
-				<form>
-					<button id="button-navi" type="submit"></button>
-					<button id="button-navi" type="submit"></button>
-					<button id="button-navi" type="submit"></button>
-					<button id="button-navi" type="submit"></button>
-				</form>
+				<table class="navi-table">
+					<tr class="navi-string">
+						<td class="navi-cell">
+							<input id="button-navi" type="submit" value="Profile" name="Button">
+						</td>
+						<td class="navi-cell cell1">
+	      					<input id="button-navi" type="submit" value="Photo" name="Button">
+	      				</td>
+	     				<td class="navi-cell cell2">	
+	     					<input id="button-navi" type="submit" value="Project" name="Button">
+	     				</td>
+	      				<td class="navi-cell cell3">
+	      					<input id="button-navi" type="submit" value="Contact" name="Button">
+						</td>
+					</tr>
+				</table>	
 			</div>
 		</div>
 		<div class="left-field">
@@ -25,9 +34,12 @@
       			<label><input id="button-apply" type="submit" value="Contact" name="Button"></label>
 			</form>
 		</div>
+		<div class="right-field">
+			<p>Right</p>
+		</div>
 		<div class="bottom-field">
 			<p>Bottom</p>
-		</div>
+		</div>	
 	</div>
 	</body>
 </head>

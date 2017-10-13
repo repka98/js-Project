@@ -1,90 +1,245 @@
 body{
-	font: 10pt Arial, Helvetica, sans-serif;
-	background: #e1dfb9;
+	color: #8f8f8f;
+	font: 12px Tahoma, sans-serif;
+	background: #f8f8f8 url(../images/bg.png);
+	border-top: 5px solid #7e7e7e;
+	margin: 0;
 }
 
-div{
-	width: 100%;
-	height: 100px;
-	border: 1px solid black;
-	border-radius: 5px;
+img {
+	border: 0;
+}
+
+header{
+  padding: 10px 0;
+}
+
+nav {
+	background: #f3f3f3;
+	border: 1px solid #e7e7e7;
 }
 
 p{
 	text-align: center;
 }
 
-.item-field {
-	width: 100%;
-	height: 900px;
-	border: 1px solid black;
-}
-
-.top-field {
-	position: relative;
-	width: 100%;
-	float: top;
-	left: 0;
-}
-
-.navi-panel {
-	position: absolute;
-	width: 99%;
-	height: 50px;
-	bottom: 0;
-	left: 0;
-	margin: 0 auto;	
-}
-
-.navi-table {
-	width: 400px;
-	height: 30px;
-	border-collapse: collapse;
+.container {
+	max-width: 960px;
 	margin: auto;
 }
 
-.navi-cell {
-	width: 100px;
-	height: 30px;
+header {
+	padding: 20px 0;
 }
 
-#button-navi {
+aside {
 	float: left;
-	width: 100px;
-	height: 30px;
-	margin-right: 10px;
-	font-size: 12px;
+	width: 250px;
 }
+
+section {
+	margin-left: 280px;
+	padding-bottom: 50px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style-position: inside;
+  font: 14px 'Oswald', sans-serif;
+  padding: 10px;
+}
+
+.top-menu li {
+  display: inline-block;
+  padding: 10px 30px;
+  margin: 0;
+}
+
+.top-menu li.active {
+  background: #29c5e6;
+  color: #fff;
+}
+
+.top-menu a {
+  color: #b2b2b2;
+}
+
 
 .left-field{
+	position: fixed;
 	float: left;
-	width: 12%;
-	height: 600px;
-	padding: 0 10px;
-	margin-top: 10px;
+	width: 100px;
+	height: 200px;
+	padding: 0 5px;
+	margin-top: 5px;
+  border: 1px solid black;
+  background: white;
+}
+
+.aside-menu li {
+  font-weight:300;
+  list-style-type: square;
+  border-top: 1px solid #e7e7e7;
+}
+
+.aside-menu li:first-child{
+  border: none;
+}
+
+.aside-menu li.active{
+  color: #29c5e6;
+}
+
+.aside-menu a {
+  color: #8f8f8f;
+}
+
+p {
+	margin: 20px 0;
 }
 
 .right-field {
 	float: right;
-	width: 85%;
-	height: 600px;
-	margin-top: 10px;
-	text-align: center;
+	max-width: 80%;
+	height: auto;
+	overflow: hidden;
+	margin-top: 5px;
+	text-align: left;
+  border: 1px solid black;
 }
 
-.bottom-field{
-	position:fixed;
-	height: 50px;
-	width: 100%; 
-	left: 0;
-	bottom: 0;
-	padding: 10px;
-	background-color: #39b54a;
+footer {
+	background: #7e7e7e;
+	color: #dbdbdb;
+	font-size: 11px;
+}
+
+#footer {
+	max-width: 960px;
+	margin: auto;
+	padding: 10px 0;
+	height: 90px;
+}
+
+footer h3 {
+	font: 14px 'Oswald', sans-serif;
 	color: #fff;
+	border-bottom: 1px solid #919191;
+	margin: 0 0 10px 0;
 }
 
-#button-apply {
-	margin: 5px;
-	display: flex;
-	flex-flow: column-wrap;
+footer a {
+	color: #dbdbdb;
+}
+
+#twitter time a {
+	color: #b4aeae;
+}
+
+footer p {
+	margin: 5px 0;
+}
+
+#twitter {
+	float: left;
+	width: 300px;
+}
+
+#twitter p {
+	padding-right: 15px;
+}
+
+#sitemap {
+	width: 150px;
+	float: left;
+	margin-left: 20px;
+	padding-right: 15px;
+}
+
+#sitemap div {
+	display: inline-block;
+}
+
+#sitemap div + div {
+	margin-left: 40px;
+}
+
+#sitemap a {
+	display: block;
+	text-decoration: none;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+#sitemap a:hover {
+	text-decoration: underline;
+}
+
+#social {
+	float: left;
+	margin-left: 20px;
+	width: 130px;
+}
+
+.social-icon {
+	width: 30px;
+	height: 30px;
+	background: url(../images/social.png) no-repeat;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.social-icon-small  {
+	width: 16px;
+	height: 16px;
+	background: url(../images/social-small.png) no-repeat;
+	display: inline-block;
+	margin: 5px 6px 0 0;
+}
+
+.twitter {
+	background-position: 0 0;
+}
+
+.facebook {
+	background-position: -30px 0;
+}
+
+.google-plus {
+	background-position: -60px 0;
+}
+
+.vimeo {
+	background-position: 0 0;
+}
+
+.youtube {
+	background-position: -16px 0;
+}
+
+.flickr {
+	background-position: -32px 0;
+}
+
+.instagram {
+	background-position: -48px 0;
+}
+
+.rss {
+	background-position: -64px 0;
+}
+
+#footer-logo {
+	float: right;
+	margin-top: 20px;
+	font-size: 10px;
+	text-align: right;
 }

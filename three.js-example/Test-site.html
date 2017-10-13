@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 	<title>Test-site</title>
 	<link rel="stylesheet" type="text/css" href="Test-site.css">
 	<body bgcolor="#F0FFFF">
-	<div class="item-field">
-		<div class="top-field">
-			<div class="navi-panel">
-				<table class="navi-table">
-					<tr class="navi-string">
-						<td class="navi-cell">
-							<input id="button-navi" type="submit" value="Profile" name="Button">
-						</td>
-						<td class="navi-cell cell1">
-	      					<input id="button-navi" type="submit" value="Photo" name="Button">
-	      				</td>
-	     				<td class="navi-cell cell2">	
-	     					<input id="button-navi" type="submit" value="Project" name="Button">
-	     				</td>
-	      				<td class="navi-cell cell3">
-	      					<input id="button-navi" type="submit" value="Contact" name="Button">
-						</td>
-					</tr>
-				</table>	
-			</div>
-		</div>
-		<div class="left-field">
-			<p>Left</p>
-			<form>
-				<label><input id="button-apply" type="submit" value="Profile" name="Button"></label>
-      			<label><input id="button-apply" type="submit" value="Photo" name="Button"></label>
-     			<label><input id="button-apply" type="submit" value="Project" name="Button"></label>
-      			<label><input id="button-apply" type="submit" value="Contact" name="Button"></label>
-			</form>
-		</div>
-		<div class="right-field">
-			<p>Right</p>
-		</div>
-		<div class="bottom-field">
-			<p>Bottom</p>
-		</div>	
-	</div>
-	</body>
-</head>
-<body>
+		<div class="container">
+			<header>
+				<a href="/"><img src="" alt="Constructor site"></a>
+			</header>			
+			<nav>
+				<ul class="top-menu">
+					<li><a href="Test-site.html">HOME</a></li>
+					<li><a href="Test-site_Profile.html">PROFILE</a></li>
+					<li><a href="Test-site_Profile.html#Photo">PHOTO</a></li>
+					<li class="active"><a href="Test-site_Template.html">TEMPLATE</a></li>
+					<li><a href="Test-site_Create_project.html">CREATE</a></li>
+					<li><a href="Test-site_Contact.html">CONTACT</a></li>
+				</ul>
+			</nav>
 
-</body>
+			<aside>
+				<nav>
+					<ul class="aside-menu">
+						<li class="active"><a href="Test-site_Create_project.html">Begin create</a></li>
+						<li><a href="Test-site_Profile.html">Create tab</a></li>
+						<li><a href="Test-site_Template.html">Choose template</a></li>
+						<li><a href="Test-site_Contact.html">Send project</a></li>
+						<li><a href="Test-site_Contact.html">Help</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<section>
+				<p>
+
+
+
+					<span>Какой-то текст</span>
+
+
+				</p>
+				<img src="../textures/woodHouse.jpg">
+			</section>
+		</div>
+
+		<footer>
+			<div id="footer">
+				<div id="projects"></div>
+				<div id="sitemap"></div>
+				<div id="contact"></div>
+				<div id="help"></div>
+			</div>
+		</footer>
+	</body>
 </html>

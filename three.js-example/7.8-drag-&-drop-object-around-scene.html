@@ -42,7 +42,96 @@
 		dirLight.position.set(25, 23, 15);
 		scene.add(dirLight);
 
+		var dirLight2 = new THREE.DirectionalLight();
+		dirLight2.position.set(-25, 23, 15);
+		scene.add(dirLight2);
+
+		for (var  i = 0; i < 200; i++){
+			var cubeGeometry = new THREE.BoxGeometry(2,2,2);
+			var cubeMaterial = new THREE.MeshLambertMaterial({color: Math.random() * 0xffffff});
+			cubeMaterial.transparent = true;
+			cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+			objects.push(cube);
+
+			cube.scale.x = Math.random() + 0.5 * 2;
+			cube.scale.y = Math.random() + 0.5 * 2;
+			cube.scale.z = Math.random() + 0.5 * 2;
+
+			cube.position.x = Math.random() * 50 - 25;
+			cube.position.y = Math.random() * 50 - 25;
+			cube.position.z = Math.random() * 50 - 25;
+
+			cube.rotation.x = Math.random() * Math.PI * 2;
+			cube.rotation.y = Math.random() * Math.PI * 2;
+			cube.rotation.z = Math.random() * Math.PI * 2;
+			scene.add(cube);
+		}
+
+		camera.position.x = 35;
+		camera.position.y = 35;
+		camera.position.z = 35;
+		camera.lookAt(scene.position);
+
+		orbit = new THREE.OrbitControls(camera);
+
+		document.body.appendChild(renderer.domElement);
+		render();
+
 	}
+
+	function addControls(controlObject) {
+		var gui = new dat.GUI();
+		gui.add(controlObject, 'rotationSpeed', -0.1, 0.1);
+		gui.add(controlObject, 'scale', 0.01, 2);
+	}
+
+	function render() {
+		renderer.render(scene, camera);
+		orbit.update();
+		requestAnimationFrame(render);
+	}
+
+	document.onmousemove = function (event) {
+		event.preventDefault();
+		var mouse_x = (event.clientX / window.innerWidth) * 2 - 1;
+		var mouse_y = (event.clientY / window.innerHeight) * 2 + 1;
+
+		var vector = new THREE.Vector3(mouse_x, mouse_y, 0.5);
+		vector.unproject(camera);
+		var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+
+		if (selectedobject) {
+			var intersects = raycaster.intersectObject(palne);
+			selectedobject.position.copy(intersects[0].point.sub(offset));
+		}else {
+			var intersects = raycaster.intersectObjects(objects);
+			if( intersects.length > 0) {
+				plane.position.copy(intersects[0].object.position);
+				plane.lookAt(camera.position);
+			}
+		}
+	};
+
+	document.onmousedown = function(event) {
+		var mouse_x = (event.clientX / window.innerWidth) * 2 - 1;
+		var mouse_y = (event.clientY / window.innerHeight) * 2 + 1;
+
+		var vector = new THREE.Vector3(mouse_x, mouse_y, 0.5);
+		vector.unproject(camera);
+
+		var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+
+		var intersects = raycaster.intersectObjects(objects);
+
+		if( intersects.length > 0) {
+			orbit.enable = false;
+			selectedobject = intersects[0].object;
+			var intersects = raycaster.intersectObject(plane);
+			offset.copy(intersects[0].point).sub(plane.position);
+		}
+	};
+
+	window.onload = init;
 </script>
 <body>
 

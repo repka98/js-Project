@@ -1,59 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Contact</title>
-	<link rel="stylesheet" type="text/css" href="Test-site.css">
-</head>
-<body>
-	<div class="contact-container">
-		<header>
-			<a href=""><img src="" alt="Our logo"></a>
-		</header>		
-		<nav>
-			<ul class="top-menu">
-				<li><a href="Test-site.html">HOME</a></li>
-				<li><a href="Test-site_Profile.html">PROFILE</a></li>
-				<li><a href="Test-site_Profile.html#Photo">PHOTO</a></li>
-				<li><a href="Test-site_Template.html">TEMPLATE</a></li>
-				<li><a href="Test-site_Create_project.html">CREATE</a></li>
-				<li  class="active"><a href="Test-site_Contact.html">CONTACT</a></li>
-			</ul>
-		</nav>
-		<aside>
+<meta charset="utf-8">
+	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="css/Test-site.css">
+	<body bgcolor="#F0FFFF">
+		<div class="container">
+			<header>
+				<a href="/"><img src="" alt="Constructor site"></a>
+			</header>			
 			<nav>
-				<ul class="aside-menu">
-					<li><a href="Test-site_Create_project.html">Begin create</a></li>
-					<li><a href="Test-site_Profile.html">Create tab</a></li>
-					<li><a href="Test-site_Template.html">Choose template</a></li>
-					<li><a href="Test-site_Contact.html">Send project</a></li>
-					<li class="active"><a href="Test-site_Contact.html">Help</a></li>
+				<ul class="top-menu">
+					<li><a href="Test-site.html">HOME</a></li>
+					<li><a href="Test-site_Profile.html">PROFILE</a></li>
+					<li><a href="Test-site_Profile.html#Photo">PHOTO</a></li>
+					<li><a href="Test-site_Template.html">TEMPLATE</a></li>
+					<li><a href="Test-site_Create_project.html">CREATE</a></li>
+					<li  class="active"><a href="Test-site_Contact.html">CONTACT</a></li>
 				</ul>
 			</nav>
-		</aside>
+
+			<aside>
+				<nav>
+					<ul class="aside-menu">
+						<li><a href="Test-site_Create_project.html">Begin create</a></li>
+						<li><a href="Test-site_Profile.html">Create tab</a></li>
+						<li><a href="Test-site_Template.html">Choose template</a></li>
+						<li><a href="Test-site_Contact.html">Send project</a></li>
+						<li  class="active"><a href="Test-site_Contact.html">Help</a></li>
+					</ul>
+				</nav>
+			</aside>
 
 		<section>
-			<p>
+			<h1>Ours contact</h1>
+
+				<p>Contact phone: 8-800-700-80000</p>
+				<p>Email address: buildHome@bmail.com</p>
+				<p>Our address: Voronez </p>
 
 
-				<span>Our number</span><br>
+				<p><label class="question_label">Ваш вопрос: </label></p>
+				<p><textarea class="client_question_textarea" id="client-question"></textarea>
+				<br>
+				<br>
+				<button class="send_question_button" type="submit">Send</button></p>
 
-				<span>8-800-700-8000</span><br>
-
-				<p>Opening Hours</p><br>
-
-				<p>9:00 - 18:00</p><br>
-
-
-				<label><input type="text" name="Ask question" name="Ask question"></label><br>
-
-
-				<textarea id="client-question">
-					Yours question
-				</textarea><button type="submit">Send</button>
-
-
-			</p>
 		</section>
 	</div>
 	<footer>

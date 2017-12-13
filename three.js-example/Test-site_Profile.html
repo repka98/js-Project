@@ -2,17 +2,38 @@
 <html>
 <meta charset="utf-8">
 	<title>Profile</title>
-	<link rel="stylesheet" type="text/css" href="Test-site.css">
+	<link rel="stylesheet" type="text/css" href="styles/Test-site.css">
+	<link rel="stylesheet" type="text/css" href="styles/gallery.css">
+	<link rel="stylesheet" type="text/css" href="styles/horz_menu.css">
+	<link href="styles/slideshow.css" rel="stylesheet" type="text/css">
 	<body bgcolor="#F0FFFF">
 		<div class="container">
-			<header>
-				<a href="/"><img src="" alt="Constructor site"></a>
-			</header>			
+			<div id="gallery_header" data-cycle-speed='500' data-cycle-fx='scrollHorz' data-cycle-timeout='2000' data-cycle-pause-on-hover='true'>
+		<div class='cycle-pager'></div>
+        <img src="images/Nature_1.jpg" width="600" height="200" alt="Milk Fruit Explosion">
+        <img src="images/Nature_2.jpg" width="600" height="200" alt="Fan">
+        <img src="images/Nature_3.jpg" width="600" height="200" alt="Pink weight">
+      </div>		
 			<nav>
-				<ul class="top-menu">
-					<li><a href="Test-site.html">HOME</a></li>
+				<ul class="nav">
+					<li><a href="Test-site.html">HOME</a>
+					<ul>
+						<li><a href="Test-site.html">Catalog</a></li>
+						<li><a href="Test-site.html/house">Houses</a>
+						<ul>
+							<li><a href="Test-site.html/house/manufacturers">Manufacturers</a></li>
+						</ul>
+						</li>
+					</ul>
+					</li>
 					<li class="active"><a href="Test-site_Profile.html">PROFILE</a></li>
-					<li><a href="Test-site_Profile.html#Photo">PHOTO</a></li>
+					<li><a href="Test-site_Profile.html#Photo">PHOTO</a>
+					<ul>
+						<li><a href="Test-site_Profile.html/Design">Room Design </a></li>	
+						<li><a href="Test-site_Profile.html/"></a></li>
+
+					</ul>
+					</li>
 					<li><a href="Test-site_Template.html">TEMPLATE</a></li>
 					<li><a href="Test-site_Create_project.html">CREATE</a></li>
 					<li><a href="Test-site_Contact.html">CONTACT</a></li>
@@ -33,34 +54,46 @@
 
 			<section>
 				<h1>Ours project</h1>
-
-				<div class="wrapper">
-					<div class="item-list">
-						<div class="item">
-							<a href="/"><img src="../textures/House-background.jpg"></a>
-						</div>
-						<div class="item">
-							<a href="/"><img src="../textures/House-background.jpg"></a>
-						</div>
-						<div class="item">
-							<a href="/"><img src="../textures/House-background.jpg"></a>
-						</div>
-						<div class="item">
-							<a href="/"><img src="../textures/House-background.jpg"></a>
-						</div>
-					</div>
+				<div>
+				<div id="gallery">
+					<a href="images/Nature_1.jpg"><img src="images/Nature_1 — small.jpg" width="70" height="70" alt="Blue"></a>
+  					<a href="images/Nature_2.jpg"><img src="images/Nature_2 — small.jpg" width="70" height="70" alt="Yellow"></a>
+  					<a href="images/Nature_3.jpg"><img src="images/Nature_3 — small.jpg" width="70" height="70" alt="Green"></a>
+  					<a href="images/Nature_4.jpg"><img src="images/Nature_4 — small.jpg" width="70" height="70" alt="Orange"></a> 
 				</div>
-
+				<div id="photo">
+					
+				</div>
+				</div>
 			</section>
 		</div>
 
 		<footer>
-			<div id="footer">
+			<div >
 				<div id="projects"></div>
 				<div id="sitemap"></div>
 				<div id="contact"></div>
 				<div id="help"></div>
 			</div>
 		</footer>
+
+		<script type="text/javascript" src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/distant_rollovers.js"></script>
+		<script type="text/javascript" src="scripts/superfish.js"></script>
+		<script type="text/javascript" src="scripts/cycle2.js"></script>
+
+	<script type="text/javascript">
+			$(document).ready( function () {
+				$('#gallery_header').cycle();
+			});
+
+			$(document).ready(function () {
+				$('.nav').superfish({
+					delay: 400
+				});
+				$('.nav li:has(li)').find('a:first').addClass('sub');
+				$('.nav ul li has(ul)').find('a').removeClass('sub').addClass('subsub');
+			});
+		</script>
 	</body>
 </html>

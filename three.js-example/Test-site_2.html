@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cycle Slideshow</title>
+<link href="styles/global.css" rel="stylesheet" type="text/css">
+<link href="styles/slideshow.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/Test-site.css">
+</head>
+
+<body id="twoCol">
+<div id="container">
+        <div id="gallery_header" data-cycle-speed='500' data-cycle-fx='scrollHorz' data-cycle-timeout='2000' data-cycle-pause-on-hover='true'>
+		<div class='cycle-pager'></div>
+        <img src="images/Nature_1.jpg" width="600" height="200" alt="Milk Fruit Explosion">
+        <img src="images/Nature_2.jpg" width="600" height="200" alt="Fan">
+        <img src="images/Nature_3.jpg" width="600" height="200" alt="Pink weight">
+      </div>
+  <div id="contentWrap">
+    <div id="main">
+      <h1>Cycle Slideshow</h1>
+      
+
+    </div>
+    <div id="sidebar">
+      <h2>Cycle</h2>
+    </div>
+  </div>
+  <div id="footer"><em>&#8220;Building Interactive Web Sites with JavaScript&#8221;</em></div>
+</div>
+
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/cycle2.js"></script>
+
+<script type="text/javascript">
+$(document).ready( function () {
+	$('#gallery_header').cycle();
+});
+	
+</script>
+
+</body>
+</html>

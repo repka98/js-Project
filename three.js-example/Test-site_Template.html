@@ -2,19 +2,24 @@
 <html>
 <head>
 <meta charset="utf-8">
-	<title>Template</title>
-	<link rel="stylesheet" type="text/css" href="css/Test-site.css">
-	<body bgcolor="#F0FFFF">
+	<title>Test-site</title>
+<link href="styles/slideshow.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/Test-site-main-page.css">
+	<body>
 		<div class="container">
-			<header>
-				<a href="/"><img src="" alt="Constructor site"></a>
-			</header>			
-			<nav>
+			<div id="gallery_header" data-cycle-speed='500' data-cycle-fx='scrollHorz' data-cycle-timeout='2000' data-cycle-pause-on-hover='true'>
+			<div class='cycle-pager'></div>
+	        <img src="images/Nature_1.jpg" width="600" height="200" alt="Milk Fruit Explosion">
+	        <img src="images/Nature_2.jpg" width="600" height="200" alt="Fan">
+	        <img src="images/Nature_3.jpg" width="600" height="200" alt="Pink weight">
+      		</div>
+		</div>
+		<nav>
 				<ul class="top-menu">
-					<li><a href="Test-site.html">HOME</a></li>
+					<li class="active"><a href="Test-site.html">HOME</a></li>
 					<li><a href="Test-site_Profile.html">PROFILE</a></li>
 					<li><a href="Test-site_Profile.html#Photo">PHOTO</a></li>
-					<li class="active"><a href="Test-site_Template.html">TEMPLATE</a></li>
+					<li><a href="Test-site_Template.html">TEMPLATE</a></li>
 					<li><a href="Test-site_Create_project.html">CREATE</a></li>
 					<li><a href="Test-site_Contact.html">CONTACT</a></li>
 				</ul>
@@ -25,14 +30,16 @@
 					<ul class="aside-menu">
 						<li><a href="Test-site_Create_project.html">Begin create</a></li>
 						<li><a href="Test-site_Profile.html">Create tab</a></li>
-						<li class="active"><a href="Test-site_Template.html">Choose template</a></li>
+						<li><a href="Test-site_Template.html">Choose template</a></li>
 						<li><a href="Test-site_Contact.html">Send project</a></li>
 						<li><a href="Test-site_Contact.html">Help</a></li>
 					</ul>
 				</nav>
 			</aside>
+			
+		</div>
 
-			<section>
+		<section>
 				<h1>Template</h1>
 
 				<div class="wrapper">
@@ -52,15 +59,50 @@
 					</div>
 				</div>
 			</section>
-		</div>
 
 		<footer>
-			<div id="footer">
-				<div id="projects"></div>
-				<div id="sitemap"></div>
-				<div id="contact"></div>
-				<div id="help"></div>
+		<div id="footer">
+			<div id="twitter">
+				<h3>TWITTER FEED</h3>
+				<time datetime="2012-10-23"><a href="#">23 oct</a></time>
+				<p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean aug</p>
 			</div>
-		</footer>
+			<div id="sitemap">
+				<h3>SITEMAP</h3>
+				<div>
+					<a href="/home/">Home</a>
+					<a href="/about/">About</a>
+					<a href="/services/">Services</a>
+				</div>
+				<div>
+					<a href="/partners/">Partners</a>
+					<a href="/customers/">Support</a>
+					<a href="/contact/">Contact</a>
+				</div>
+			</div>
+			<div id="social">
+				<h3>SOCIAL NETWORKS</h3>
+				<a href="http://twitter.com/" class="social-icon twitter"></a>
+				<a href="http://facebook.com/" class="social-icon facebook"></a>
+				<a href="http://plus.google.com/" class="social-icon google-plus"></a>
+				<a href="http://vimeo.com/" class="social-icon-small vimeo"></a>
+				<a href="http://youtube.com/" class="social-icon-small youtube"></a>
+				<a href="http://flickr.com/" class="social-icon-small flickr"></a>
+				<a href="http://instagram.com/" class="social-icon-small instagram"></a>
+				<a href="/rss/" class="social-icon-small rss"></a>
+			</div>
+			<div id="footer-logo">
+				<p>Copyright &copy; 2012 Whitesquare. A <a href="http://pcklab.com">pcklab</a> creation </p>
+			</div>
+		</div>
+	</footer>
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/cycle2.js"></script>
+
+	<script type="text/javascript">
+$(document).ready( function () {
+	$('#gallery_header').cycle();
+});
+	</script>
 	</body>
 </html>

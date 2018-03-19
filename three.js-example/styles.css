@@ -1,0 +1,52 @@
+/*body {
+	margin:0px;
+}
+
+#header{
+	background:darkred;
+	width:715px;
+	height:100px;
+}
+
+.container{
+	height:500;
+	width: 1000px;
+	border: 1px solid black;
+}
+
+#menu{
+	background:yellow;
+	width:190px;
+	height:300px;
+}
+
+#menu a{
+	color: #2b3845;
+	text-decoration:none;
+	display: block;
+}
+
+#menu a:hover{
+	color: #92A9BF;
+	background: green;
+}
+#content{
+	background:oldlace;
+	width:525px;
+	height:300px;
+	position:absolute;
+	left:190px;
+	top:100px;
+}
+#news{
+	background:yellow;
+	width:150px;
+	height:280px;
+	float:right;
+	margin:10px;
+}
+#footer{
+	background:darkred;
+	width:715px;
+	height:30px;
+}

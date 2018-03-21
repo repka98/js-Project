@@ -1,63 +1,72 @@
-if( ! Detector.webgl ) Detector.addGetWebGLMessage();
-var container;
-var camera, scene, renderer;
-var plane, cube;
-var mouse, raycaster, isShiftDown = false;
-var rollOverMesh, rollOverMaterial;
-var cubeGeo, cubeMaterial;
+
+window.onlad = init();
+
+var scene, camera, renderer;
+var cube;
+var mouse, raycaster;
+var isShiftDown = false;
 var objects = [];
 init();
 render();
+
 function init() {
+
 	var container = document.querySelector("#three_js");
 	var header_h = document.getElementsByClassName('container').offsetHeight;
 	container = document.createElement( 'div' );
 	three_js.appendChild( container );
-	var window_w = window.innerWidth;
-	var window_h = window.innerHeight;
-	camera = new THREE.PerspectiveCamera( 50, window_w / window_h, 1, 10000 );
-	camera.position.set( 800, 1000, 1300 );
+
+	scene = new THREE.Scene(); //создание сцены
+	scene.background = new THREE.Color(0xffffff); // задний фон
+	camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight,0.1, 2000); // положение камеры
+	camera.position.set( 500, 800, 1300 );
 	camera.lookAt( new THREE.Vector3() );
-	scene = new THREE.Scene();
-	scene.background = new THREE.Color( 0xf0f0f0 );
-	var rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 );
-	rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
-	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
-	scene.add( rollOverMesh );
-	cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
-	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( "textures/square-outline-textured.png" ) } );
-	var gridHelper = new THREE.GridHelper( 1000, 20 );
-	scene.add( gridHelper );
+
+	var rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 ); // кубик помощник
+	var	rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } ); // материал куба
+	var	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial ); // отрисовка куба
+	scene.add( rollOverMesh ); // добавление на стену
+
+	var cubeGeo = new THREE.BoxGeometry( 50, 50, 50 ); // кубик
+	var cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c } ); // материал кубика
+
+	var gridHelper = new THREE.GridHelper( 1000, 20 ); // сетка для помощи 
+	scene.add( gridHelper ); // добавление сетки на сцену
+
 	raycaster = new THREE.Raycaster();
 	mouse = new THREE.Vector2();
+
 	var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
 	geometry.rotateX( - Math.PI / 2 );
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
+	var plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
 	scene.add( plane );
-	objects.push( plane );
-	var ambientLight = new THREE.AmbientLight( 0x606060 );
-	scene.add( ambientLight );
-	var directionalLight = new THREE.DirectionalLight( 0xffffff );
-	directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
-	scene.add( directionalLight );
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
+    objects.push( plane );
+
+	renderer = new THREE.WebGLRenderer( { antialias: true } );// метод рендеринга
 	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( window.innerWidth , window.innerHeight);
 	container.appendChild( renderer.domElement );
 	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 	document.addEventListener( 'keydown', onDocumentKeyDown, false );
 	document.addEventListener( 'keyup', onDocumentKeyUp, false );
+
 	window.addEventListener( 'resize', onWindowResize, false );
+
+	
 }
+
 function onWindowResize() {
+	var container = document.querySelector("#three_js");
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( window.innerWidth , window.innerHeight );
 }
+
 function onDocumentMouseMove( event ) {
+	var container = document.querySelector("#three_js");
 	event.preventDefault();
-	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1.1 );
+	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 	raycaster.setFromCamera( mouse, camera );
 	var intersects = raycaster.intersectObjects( objects );
 	if ( intersects.length > 0 ) {
@@ -67,9 +76,11 @@ function onDocumentMouseMove( event ) {
 	}
 	render();
 }
+
 function onDocumentMouseDown( event ) {
+	var container = document.querySelector("#three_js");
 	event.preventDefault();
-	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1.1 );
+	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 	raycaster.setFromCamera( mouse, camera );
 	var intersects = raycaster.intersectObjects( objects );
 	if ( intersects.length > 0 ) {
@@ -88,7 +99,7 @@ function onDocumentMouseDown( event ) {
 			scene.add( voxel );
 			objects.push( voxel );
 		}
-		render();
+	render();
 	}
 }
 function onDocumentKeyDown( event ) {
@@ -96,11 +107,13 @@ function onDocumentKeyDown( event ) {
 		case 16: isShiftDown = true; break;
 	}
 }
+
 function onDocumentKeyUp( event ) {
 	switch ( event.keyCode ) {
 		case 16: isShiftDown = false; break;
 	}
 }
-function render() {
-	renderer.render( scene, camera );
+
+function render () {
+	renderer.render(scene, camera);
 }

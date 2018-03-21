@@ -1,5 +1,5 @@
 body {
-	color: black;
+	color: white;
 	font: 12px Tahoma, sans-serif;
 	background: #f8f8f8 url(../images/bg.png) repeat-x;
 	border-top: 5px solid #7e7e7e;
@@ -20,6 +20,7 @@ p{
 }
 
 .container {
+  position: absolute;
 	max-width: 1000px;
 	margin: auto;
 }
@@ -146,6 +147,13 @@ p {
   overflow: hidden;
 }
 
+#three_js {
+  background: white;
+  width: auto;
+  height: 720px;
+ 
+}
+
 #content-block .overlay {
   position: absolute;
   width: 100%;
@@ -165,8 +173,9 @@ p {
   text-decoration: none;
 }
 
-#content-block a:hover .overlay{
+#content-block a:hover {
   left:0;
+  color: red;
 }
 
 #content-image {
